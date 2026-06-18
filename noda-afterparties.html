@@ -93,7 +93,7 @@
 .nav-powered:hover { color: rgba(255,102,0,0.55); }
 .nav-dropdown { position: relative; }
 .dropdown-menu { position: absolute; top: calc(100% + 0.6rem); left: 50%; transform: translateX(-50%); background: rgba(5,5,5,0.98); border: 1px solid rgba(255,102,0,0.45); border-radius: 6px; min-width: 270px; display: none; flex-direction: column; z-index: 1100; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
-.nav-dropdown.open .dropdown-menu { display: flex; }
+.nav-dropdown:hover .dropdown-menu { display: flex; }
 .dropdown-menu a { padding: 0.65rem 1.1rem; color: #ccc; font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,102,0,0.1); transition: all 0.18s; }
 .dropdown-menu a:last-child { border-bottom: none; }
 .dropdown-menu a:hover { color: var(--neon-orange); background: rgba(255,102,0,0.07); padding-left: 1.4rem; }
@@ -231,14 +231,6 @@ const toggle = document.getElementById('navToggle');
 const menu = document.getElementById('navMenu');
 if(toggle) toggle.addEventListener('click', () => { toggle.classList.toggle('active'); menu.classList.toggle('active'); });
 window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80); });
-document.querySelectorAll('.nav-dropdown > a').forEach(function(btn) {
-  btn.addEventListener('click', function(e) { e.preventDefault(); this.parentElement.classList.toggle('open'); });
-});
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-dropdown')) {
-    document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
-  }
-});
 </script>
 </body>
 </html>
