@@ -694,7 +694,7 @@
             overflow: hidden;
             box-shadow: 0 8px 30px rgba(0,0,0,0.6);
         }
-        .dropdown-menu.open { display: flex; }
+        .nav-dropdown:hover .dropdown-menu { display: flex; }
         .dropdown-menu a {
             padding: 0.65rem 1.1rem;
             color: var(--text-secondary);
@@ -785,7 +785,7 @@
                 <li class="nav-item"><a href="#home" class="nav-link">HOME</a></li>
                 <li class="nav-item"><a href="#event" class="nav-link" style="color: var(--neon-orange);">🔥 EVENT</a></li>
                 <li class="nav-item nav-dropdown">
-                    <a href="#" class="nav-link party-hub-trigger" onclick="return false;">PARTY HUB ▾</a>
+                    <a href="#" class="nav-link" onclick="return false;">PARTY HUB ▾</a>
                     <div class="dropdown-menu">
                         <div class="dropdown-label">NODA</div>
                         <a href="/noda-underground-raves.html">Underground Raves In NoDa</a>
@@ -1110,36 +1110,6 @@
     ============================================ -->
     <script src="js/particles.js"></script>
     <script src="js/script.js"></script>
-
-    <!-- Party Hub Dropdown Click Handler -->
-    <script>
-        const partyHubTrigger = document.querySelector('.party-hub-trigger');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-
-        if (partyHubTrigger && dropdownMenu) {
-            // Toggle on click
-            partyHubTrigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                dropdownMenu.classList.toggle('open');
-            });
-
-            // Close on clicking outside
-            document.addEventListener('click', (e) => {
-                if (!partyHubTrigger.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                    dropdownMenu.classList.remove('open');
-                }
-            });
-
-            // Close when a link is clicked inside the dropdown
-            const dropdownLinks = dropdownMenu.querySelectorAll('a');
-            dropdownLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    dropdownMenu.classList.remove('open');
-                });
-            });
-        }
-    </script>
 
 </body>
 </html>
