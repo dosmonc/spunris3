@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! | Spunris3</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .thank-you-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .thank-you-content {
+            max-width: 600px;
+        }
+        .thank-you-content h1 {
+            font-size: 3rem;
+            color: #ff6600;
+            margin-bottom: 1rem;
+        }
+        .thank-you-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-page">
+        <div class="thank-you-content">
+            <h1>🎉 Thank You!</h1>
+            <p>Your message has been received. We'll get back to you within 24-48 hours!</p>
+            <a href="/" class="btn btn-primary">
+                <span>BACK TO HOME</span>
+                <div class="btn-glow"></div>
+            </a>
+        </div>
+    </div>
+    <script>
+        // Auto redirect after 5 seconds
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 5000);
+    </script>
+</body>
+</html>
