@@ -85,6 +85,19 @@ window.addEventListener('load', function() {
             navMenu.classList.remove('active');
         });
     });
+
+    // Party Hub dropdown — click to open, click elsewhere to close
+    document.querySelectorAll('.nav-dropdown > a').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('open');
+        });
+    });
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+        }
+    });
     
     // Active nav link on scroll
     window.addEventListener('scroll', function() {
