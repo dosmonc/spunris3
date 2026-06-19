@@ -7,101 +7,66 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ============================================
-    // PRELOADER
+    // PRELOADER — robust dismissal
+    // Never depends solely on window 'load': third-party embeds (Cbox chat,
+    // YouTube check) can delay or block that event and leave the full-screen
+    // preloader stuck. Hide shortly after DOM is ready, with a hard failsafe.
     // ============================================
-// ===================================
-// IMAGE LAZY LOADING
-// ===================================
+    var preloaderHidden = false;
+    function hidePreloader() {
+        if (preloaderHidden) return;
+        preloaderHidden = true;
+        const preloader = document.getElementById('preloader');
+        if (preloader) preloader.classList.add('hidden');
+    }
+    setTimeout(hidePreloader, 1200);          // normal case: DOM is parsed by now
+    setTimeout(hidePreloader, 2500);          // failsafe: fires even if 'load' never does
+    window.addEventListener('load', hidePreloader); // hide sooner if everything finishes fast
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Lazy load images
+    // ============================================
+    // IMAGE LAZY LOADING (runs inline — already inside DOMContentLoaded)
+    // ============================================
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
+                    entry.target.classList.add('loaded');
+                    observer.unobserve(entry.target);
                 }
             });
         });
-        
         lazyImages.forEach(img => imageObserver.observe(img));
     } else {
         // Fallback for older browsers
         lazyImages.forEach(img => img.classList.add('loaded'));
     }
-});
 
-// ===================================
-// PRELOAD HERO IMAGE
-// ===================================
-
-window.addEventListener('load', function() {
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        heroSection.style.opacity = '1';
-    }
-});
-
-
-
+    // ============================================
+    // PRELOAD HERO IMAGE
+    // ============================================
     window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 1500);
-    });
-    
-    // ============================================
-    // NAVIGATION
-    // ============================================
-    const navbar = document.getElementById('navbar');
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    // Sticky navbar on scroll
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroSection.style.opacity = '1';
         }
     });
-    
-    // Mobile menu toggle
-    navToggle.addEventListener('click', function() {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-    
-    // Active nav link on scroll
+
+    // Active nav link on scroll (nav behavior handled by js/nav.js)
     window.addEventListener('scroll', function() {
         let current = '';
         const sections = document.querySelectorAll('section');
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
             if (scrollY >= (sectionTop - 200)) {
                 current = section.getAttribute('id');
             }
         });
-        
-        navLinks.forEach(link => {
+
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
+            if (current && link.getAttribute('href').includes(current)) {
                 link.classList.add('active');
             }
         });
@@ -111,8 +76,9 @@ window.addEventListener('load', function() {
     // HERO CANVAS ANIMATION
     // ============================================
     const canvas = document.getElementById('heroCanvas');
-    const ctx = canvas.getContext('2d');
-    
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    if (canvas && ctx) {
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
@@ -189,7 +155,8 @@ window.addEventListener('load', function() {
     
     initParticles();
     animateParticles();
-    
+    } // end hero canvas guard
+
     // ============================================
     // COUNTER ANIMATION
     // ============================================

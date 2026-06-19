@@ -1,0 +1,128 @@
+/* Shared nav styles — loaded by all pages alongside css/style.css */
+
+/* ── Social + Rankops ─────────────────────────────── */
+.nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    flex-shrink: 0;
+}
+.nav-socials {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+}
+.nav-socials a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    transition: color 0.2s;
+}
+.nav-socials a:hover { color: var(--neon-orange, #ff6600); }
+.nav-powered {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.25);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+.nav-powered:hover { color: rgba(255,102,0,0.55); }
+
+/* ── Party Hub dropdown ───────────────────────────── */
+.nav-dropdown { position: relative; }
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-primary, #fff);
+    padding: 0.5rem 0;
+    position: relative;
+    display: inline;
+}
+.dropdown-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-orange, #ff6600);
+    transition: width 0.3s ease;
+}
+.dropdown-btn:hover { color: var(--neon-orange, #ff6600); }
+.dropdown-btn:hover::after { width: 100%; }
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(5,5,5,0.98);
+    border: 1px solid rgba(255,102,0,0.45);
+    border-radius: 6px;
+    min-width: 270px;
+    display: none;
+    flex-direction: column;
+    z-index: 1100;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.nav-dropdown.open .dropdown-menu { display: flex; }
+
+.dropdown-label {
+    padding: 0.4rem 1.1rem 0.2rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    color: rgba(255,102,0,0.5);
+}
+.dropdown-divider {
+    border: none;
+    border-top: 1px solid rgba(255,102,0,0.15);
+    margin: 0.2rem 0;
+}
+.dropdown-menu a {
+    padding: 0.65rem 1.1rem;
+    color: #ccc;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,102,0,0.1);
+    transition: all 0.18s ease;
+}
+.dropdown-menu a:last-child { border-bottom: none; }
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+    color: var(--neon-orange, #ff6600);
+    background: rgba(255,102,0,0.07);
+    padding-left: 1.4rem;
+}
+
+/* ── Mobile overrides ─────────────────────────────── */
+@media (max-width: 768px) {
+    .nav-right { display: none; }
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        display: flex !important;
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        border-left: 2px solid rgba(255,102,0,0.3);
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0.25rem 0 0.5rem 1rem;
+        min-width: unset;
+    }
+    .dropdown-menu a { font-size: 0.82rem; padding: 0.35rem 0.75rem; }
+    .dropdown-label { padding: 0.3rem 0.75rem 0.15rem; }
+}

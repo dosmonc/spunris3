@@ -1616,7 +1616,7 @@ section {
         border-left: 2px solid var(--neon-orange);
     }
     
-    .nav-menu.active {
+    .nav-menu.open {
         right: 0;
     }
     
@@ -1903,9 +1903,126 @@ section {
         bottom: 160px;
         height: 400px;
     }
-    
+
     .chat-toggle-btn {
         right: 20px;
         bottom: 80px;
     }
+}
+
+/* ============================================
+   REFINEMENTS (2026 polish pass)
+   Subtle depth, contrast, motion & focus states.
+   Brand palette unchanged.
+============================================ */
+
+/* --- Card depth: lift cards off the black background --- */
+.event-card,
+.feature-card,
+.testimonial-card {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+.event-card:hover,
+.feature-card:hover,
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--neon-orange);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.55), var(--glow-orange);
+}
+
+.testimonial-card {
+    transition: all var(--transition-normal);
+}
+
+/* --- Gallery: clearer depth + readable captions --- */
+.gallery-item {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+.gallery-item:hover {
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6), var(--glow-orange);
+}
+
+.gallery-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.55) 55%, transparent 100%);
+}
+
+.gallery-overlay h3 {
+    font-size: 1.15rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-overlay p {
+    opacity: 1;
+    color: var(--text-secondary);
+}
+
+/* --- Event meta: better contrast on dark --- */
+.meta-item {
+    color: var(--text-primary);
+}
+
+/* --- Accessibility: visible keyboard focus everywhere --- */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--neon-orange);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* --- FAQ: smooth, on-brand disclosure --- */
+details > summary {
+    transition: color var(--transition-fast);
+}
+
+details[open] > summary {
+    color: var(--neon-orange);
+}
+
+.faq-answer {
+    animation: faqReveal 0.28s ease;
+}
+
+@keyframes faqReveal {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Footer: larger touch targets, tidier credit --- */
+.footer-social a {
+    width: 44px;
+    height: 44px;
+}
+
+.footer-powered {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.footer-powered a {
+    color: var(--text-muted);
+    transition: color var(--transition-normal);
+}
+
+.footer-powered a:hover {
+    color: var(--neon-orange);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .event-card,
+    .feature-card,
+    .testimonial-card,
+    .gallery-item {
+        transition: none;
+    }
+    .faq-answer { animation: none; }
 }

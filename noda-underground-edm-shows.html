@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Underground EDM Shows In NoDa Charlotte NC | Spunris3 Bass Music Events</title>
-  <meta name="description" content="Find underground EDM shows in NoDa, Charlotte NC. Spunris3 presents live bass music events featuring riddim, dubstep & drum and bass DJs. Follow @spunris3 for upcoming NoDa EDM shows.">
+  <title>Underground EDM Shows In NoDa Charlotte NC | Spunris3</title>
+  <meta name="description" content="Underground EDM shows in NoDa Charlotte NC. Spunris3 presents riddim, dubstep & drum and bass DJ events in Charlotte's arts district. Follow @spunris3.">
   <meta name="keywords" content="underground EDM shows NoDa Charlotte, EDM shows Charlotte NC, bass music shows NoDa, riddim shows Charlotte, dubstep shows NoDa Charlotte, underground electronic music Charlotte, Spunris3 EDM events, live DJ shows NoDa Charlotte, drum and bass Charlotte NC">
   <link rel="canonical" href="https://spunris3.com/noda-underground-edm-shows.html">
 
@@ -20,22 +20,30 @@
   <meta property="og:url" content="https://spunris3.com/noda-underground-edm-shows.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://spunris3.com/images/events/readyplayerone.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Underground EDM Shows In NoDa Charlotte | Spunris3 Bass Music Events">
+  <meta name="twitter:description" content="Underground EDM shows featuring riddim, dubstep & drum and bass DJs in NoDa Charlotte NC. Spunris3 presents the heaviest bass music events in Charlotte's underground scene.">
+  <meta name="twitter:image" content="https://spunris3.com/images/events/readyplayerone.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/nav.css">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": ["Organization", "EntertainmentBusiness"],
+    "@id": "https://spunris3.com/#organization",
     "name": "Spunris3",
     "alternateName": ["Spunris3 Entertainment", "Spunris 3"],
     "description": "Charlotte's premier underground EDM event brand presenting bass music shows featuring riddim, dubstep, drum and bass, and heavy wubs in NoDa Charlotte NC.",
     "url": "https://spunris3.com",
     "logo": "https://spunris3.com/images/logo.png",
+    "dateModified": "2026-06-19",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Charlotte",
@@ -53,12 +61,7 @@
       "https://www.instagram.com/spunris3",
       "https://www.facebook.com/rashante.ford"
     ],
-    "founder": {
-      "@type": "Person",
-      "name": "Rashante Ford",
-      "alternateName": ["Amir", "rash ford"],
-      "sameAs": "https://www.instagram.com/spunris3"
-    },
+    "founder": { "@id": "https://spunris3.com/#rashante-ford" },
     "event": {
       "@type": "Event",
       "name": "Spunris3 Presents: Underground Bass Music Show",
@@ -165,25 +168,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: var(--dark-bg); color: #e0e0e0; font-family: 'Rajdhani', sans-serif; min-height: 100vh; }
 
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(5,5,5,0.97); border-bottom: 1px solid rgba(255,102,0,0.2); }
-    .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .nav-logo { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; }
-    .nav-logo span { color: var(--neon-orange); }
-    .nav-menu { list-style: none; display: flex; align-items: center; gap: 1.5rem; }
-    .nav-item a { color: #ccc; text-decoration: none; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; transition: color 0.2s; }
-    .nav-item a:hover { color: var(--neon-orange); }
-    .nav-right { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; flex-shrink: 0; }
-    .nav-powered { font-family: 'Rajdhani', sans-serif; font-size: 0.6rem; color: rgba(255,255,255,0.25); text-decoration: none; }
-    .nav-dropdown { position: relative; }
-    .dropdown-menu { position: absolute; top: calc(100% + 0.6rem); left: 50%; transform: translateX(-50%); background: rgba(5,5,5,0.98); border: 1px solid rgba(255,102,0,0.45); min-width: 270px; display: none; flex-direction: column; z-index: 1100; }
-    .nav-dropdown:hover .dropdown-menu { display: flex; }
-    .dropdown-menu a { padding: 0.65rem 1.1rem; color: #ccc; font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; font-weight: 600; display: block; text-decoration: none; }
-    .dropdown-menu a:hover { color: var(--neon-orange); background: rgba(255,102,0,0.07); padding-left: 1.4rem; }
-    .dropdown-menu a.active { color: var(--neon-orange); }
-    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-toggle span { width: 24px; height: 2px; background: #fff; display: block; }
-
     /* PAGE HERO */
     .page-hero { padding: 120px 1.5rem 60px; text-align: center; background: linear-gradient(180deg, rgba(255,102,0,0.06) 0%, transparent 100%); }
     .page-badge { display: inline-block; background: rgba(255,102,0,0.15); border: 1px solid rgba(255,102,0,0.4); color: var(--neon-orange); font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 3px; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
@@ -241,51 +225,11 @@
     .related-link { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 1rem 1.2rem; color: #aaa; text-decoration: none; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
     .related-link:hover { border-color: rgba(255,102,0,0.3); color: var(--neon-orange); }
 
-    /* FOOTER */
-    footer { background: #000; border-top: 1px solid rgba(255,102,0,0.1); padding: 2rem 1.5rem; text-align: center; }
-    footer p { color: #444; font-size: 0.8rem; }
-    footer a { color: rgba(255,102,0,0.5); text-decoration: none; }
-    footer a:hover { color: var(--neon-orange); }
-
-    @media (max-width: 768px) {
-      .nav-menu { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(5,5,5,0.98); padding: 1rem; border-bottom: 1px solid rgba(255,102,0,0.2); gap: 0.5rem; }
-      .nav-menu.open { display: flex; }
-      .nav-right { display: none; }
-      .dropdown-menu { position: static; transform: none; display: flex !important; background: transparent; border: none; border-left: 2px solid rgba(255,102,0,0.3); margin: 0.25rem 0 0.5rem 1rem; }
-      .nav-toggle { display: flex; }
-    }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-container">
-    <a href="/" class="nav-logo">SPUN<span>RIS3</span></a>
-    <ul class="nav-menu" id="navMenu">
-      <li class="nav-item"><a href="/">HOME</a></li>
-      <li class="nav-item"><a href="/#event" style="color:var(--neon-orange)">🔥 EVENT</a></li>
-      <li class="nav-item nav-dropdown">
-        <a href="#" onclick="return false;">PARTY HUB ▾</a>
-        <div class="dropdown-menu">
-          <a href="/noda-underground-raves.html">Underground Raves In NoDa</a>
-          <a href="/noda-afterparties.html">Afterparties In NoDa</a>
-          <a href="/noda-warehouse-parties.html">Warehouse Parties In NoDa</a>
-          <a href="/noda-get-togethers.html">Get Togethers In NoDa</a>
-          <a href="/noda-unannounced-parties.html">Unannounced Parties In NoDa</a>
-          <a href="/noda-underground-edm-shows.html" class="active">Underground EDM Shows In NoDa</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="/#about">24/7 CHAT</a></li>
-      <li class="nav-item"><a href="/#contact">CONTACT</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="https://rankops.net" class="nav-powered" target="_blank" rel="noopener">Powered by Rankops.net</a>
-    </div>
-    <div class="nav-toggle" id="navToggle">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
+<div id="site-nav"></div>
 
 <section class="page-hero">
   <div class="page-badge">NODA · CHARLOTTE NC · LIVE EDM EVENTS</div>
@@ -470,19 +414,7 @@
   </div>
 </div>
 
-<footer>
-  <p>&copy; 2026 Spunris3 — Charlotte's Underground Bass Music Community | NoDa, Charlotte NC | <a href="https://rankops.net" target="_blank" rel="noopener">Powered by Rankops.net</a></p>
-</footer>
-
-<script>
-  const toggle = document.getElementById('navToggle');
-  const menu = document.getElementById('navMenu');
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => menu.classList.toggle('open'));
-  }
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
-  });
-</script>
+<div id="site-footer"></div>
+<script src="/js/nav.js"></script>
 </body>
 </html>
