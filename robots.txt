@@ -28,14 +28,14 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-# Pure bulk-training scrapers — blocked
+# Pure bulk-training scrapers
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: Bytespider
-Disallow: /
+Allow: /
 
 User-agent: meta-externalagent
-Disallow: /
+Allow: /
 
 Sitemap: https://spunris3.com/sitemap.xml
